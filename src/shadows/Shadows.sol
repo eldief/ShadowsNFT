@@ -5,8 +5,8 @@ pragma solidity ^0.8.9;
 // import {Strings} from '@openzeppelin/contracts/utils/Strings.sol';
 // import {Counters} from '@openzeppelin/contracts/utils/Counters.sol';
 
-import {ERC721Component} from '../abstract/erc721component/ERC721Component.sol';
-import {ERC721Composable} from '../abstract/erc721composable/ERC721Composable.sol';
+import {ERC721Component} from "../abstract/erc721component/ERC721Component.sol";
+import {ERC721Composable} from "../abstract/erc721composable/ERC721Composable.sol";
 
 contract Shadows is ERC721Composable {
     // using Strings for uint256;
@@ -17,10 +17,10 @@ contract Shadows is ERC721Composable {
     // uint16 public constant CAP = 10_000;
 
     // string public constant BASE_URI = 'todo/render/shadow/';
-    
+
     // Counters.Counter private _counter;
 
-    constructor() ERC721Composable('Shadows', 'SHDW') {
+    constructor() ERC721Composable("Shadows", "SHDW") {
         _owner = msg.sender;
     }
 
@@ -54,7 +54,7 @@ contract Shadows is ERC721Composable {
     //             )
     //         )
     //     );
-        
+
     //     return string(data);
     // }
 
@@ -117,7 +117,7 @@ contract Shadows is ERC721Composable {
     //     require (_isApprovedOrOwner(_msgSender(), composableId), 'Not owner or approved');
 
     //     _safeTransfer(from, to, composableId, data);
-        
+
     //     // TODO - transfer components
     // }
 }

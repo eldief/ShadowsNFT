@@ -1,19 +1,18 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-import {IComponent} from './IComponent.sol';
+import {IComponent} from "./IComponent.sol";
 
 /**
-* @notice Abstract contract representing a component entity.
-* @author @eldief
-*/
+ * @notice Abstract contract representing a component entity.
+ * @author @eldief
+ */
 abstract contract Component is IComponent {
-    
     /**
      * @notice Link each component to an attached composable.
      * @dev componentId -> composableId
      */
-    mapping (uint256 => uint256) private _parents;
+    mapping(uint256 => uint256) private _parents;
 
     /**
      * @notice Internal function that attach component to it's parent composable token id.

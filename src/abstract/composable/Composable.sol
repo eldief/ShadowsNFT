@@ -1,15 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-
-import {IComposable} from './IComposable.sol';
+import {IComposable} from "./IComposable.sol";
 
 /**
-* @notice Abstract contract representing a composable entity.
-* @author @eldief
-*/
+ * @notice Abstract contract representing a composable entity.
+ * @author @eldief
+ */
 abstract contract Composable is IComposable {
-    
     /**
      * @notice Array of component addresses.
      */
@@ -19,7 +17,7 @@ abstract contract Composable is IComposable {
      * @notice Link each composable token to it's components.
      * @dev composableId -> slotId -> componentId
      */
-    mapping (uint256 => mapping (uint256 => uint256)) internal _attached;
+    mapping(uint256 => mapping(uint256 => uint256)) internal _attached;
 
     /**
      * @notice Expand component collections.
@@ -28,7 +26,7 @@ abstract contract Composable is IComposable {
      * @param component new component address
      */
     function expandComponents(address component) public virtual {
-        require(component != address(0), 'Invalid component');
+        require(component != address(0), "Invalid component");
 
         _components.push(component);
     }
@@ -37,7 +35,7 @@ abstract contract Composable is IComposable {
      * @notice Get all component addresses.
      * @return component contract addresses
      */
-    function componentAddresses() public virtual view returns (address[] memory) {
+    function componentAddresses() public view virtual returns (address[] memory) {
         return _components;
     }
 
@@ -50,7 +48,7 @@ abstract contract Composable is IComposable {
      * @param componentId component id
      */
     function _attachComponent(uint256 composableId, uint256 slotId, uint256 componentId) internal {
-        require(_components[slotId] != address(0), 'Invalid component slot');
+        require(_components[slotId] != address(0), "Invalid component slot");
 
         _attached[composableId][slotId] = componentId;
     }
@@ -62,7 +60,6 @@ abstract contract Composable is IComposable {
      */
     function _detachComponents(uint256 composableId) internal {
         for (uint8 slotId = 0; slotId < _components.length;) {
-
             uint256 componentId = attachedComponent(composableId, slotId);
 
             if (componentId != 0) {
@@ -83,7 +80,7 @@ abstract contract Composable is IComposable {
      * @param slotId component slot id
      */
     function _detachComponent(uint256 composableId, uint256 slotId) internal {
-        require(_components[slotId] != address(0), 'Invalid component slot');
+        require(_components[slotId] != address(0), "Invalid component slot");
 
         delete _attached[composableId][slotId];
     }
@@ -94,7 +91,7 @@ abstract contract Composable is IComposable {
      * @param composableId composable id
      * @return components array of attached component ids
      */
-    function attachedComponents(uint256 composableId) public virtual view returns (uint256[] memory) {
+    function attachedComponents(uint256 composableId) public view virtual returns (uint256[] memory) {
         uint256[] memory components = new uint256[](_components.length);
 
         for (uint8 slotId = 0; slotId < _components.length;) {
@@ -111,7 +108,7 @@ abstract contract Composable is IComposable {
      * @param slotId component slot id
      * @return component attached component id
      */
-    function attachedComponent(uint256 composableId, uint256 slotId) public virtual view returns (uint256) {
+    function attachedComponent(uint256 composableId, uint256 slotId) public view virtual returns (uint256) {
         return _attached[composableId][slotId];
     }
 }

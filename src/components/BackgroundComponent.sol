@@ -5,8 +5,8 @@ pragma solidity ^0.8.9;
 // import {Strings} from '@openzeppelin/contracts/utils/Strings.sol';
 // import {Counters} from '@openzeppelin/contracts/utils/Counters.sol';
 
-import {IRenderer} from '../renderers/IRenderer.sol';
-import {ERC721Component} from '../abstract/erc721component/ERC721Component.sol';
+import {IRenderer} from "../renderers/IRenderer.sol";
+import {ERC721Component} from "../abstract/erc721component/ERC721Component.sol";
 
 contract BackgroundComponent is ERC721Component {
     // using Strings for uint256;
@@ -19,12 +19,12 @@ contract BackgroundComponent is ERC721Component {
     // string public constant BASE_URI = 'todo/render/background/';
 
     // mapping (uint256 => bytes32) private _seeds;
-    
+
     // Counters.Counter private _counter;
 
     IRenderer private immutable _renderer;
 
-    constructor(address renderer) ERC721Component('Shadows Background', 'SHDW_BKGR') {
+    constructor(address renderer) ERC721Component("Shadows Background", "SHDW_BKGR") {
         _owner = msg.sender;
         _renderer = IRenderer(renderer);
     }
@@ -36,9 +36,9 @@ contract BackgroundComponent is ERC721Component {
     //     uint256 componentId = _counter.current();
 
     //     _seeds[componentId] = keccak256(abi.encodePacked(
-    //         componentId, 
-    //         blockhash(block.number - 1), 
-    //         msg.sender, 
+    //         componentId,
+    //         blockhash(block.number - 1),
+    //         msg.sender,
     //         address(this)
     //     ));
 
@@ -69,11 +69,11 @@ contract BackgroundComponent is ERC721Component {
 
     //     return string(data);
     // }
-    
+
     // function image(uint256 componentId) public view override returns (bytes memory) {
     //     return _renderer.image(_seeds[componentId]);
     // }
-    
+
     // function attributes(uint256 componentId) public view override returns (bytes memory) {
     //     return _renderer.attributes(_seeds[componentId]);
     // }

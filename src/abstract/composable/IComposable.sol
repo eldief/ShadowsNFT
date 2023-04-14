@@ -2,7 +2,6 @@
 pragma solidity ^0.8.9;
 
 interface IComposable {
-    
     function expandComponents(address component) external;
 
     function componentAddresses() external view returns (address[] memory);
