@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-import {ERC721} from '@openzeppelin/contracts/token/ERC721/ERC721.sol';
+import {ERC721A} from '@ERC721A/contracts/ERC721A.sol';
 
 import {Composable} from '../composable/Composable.sol';
 import {IERC721Composable} from './IERC721Composable.sol';
