@@ -7,4 +7,8 @@ contract ShadowsTest is Test {
 
     function setUp() public {
     }
+
+    function test() public {
+        
+    }
 }

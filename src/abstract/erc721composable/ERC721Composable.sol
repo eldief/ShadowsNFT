@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-import {ERC721A} from '@ERC721A/contracts/ERC721A.sol';
+import {ERC721A} from "@ERC721A/contracts/ERC721A.sol";
 
 import {Composable} from '../composable/Composable.sol';
 import {IERC721Composable} from './IERC721Composable.sol';
@@ -11,9 +11,9 @@ import {ERC721Component} from '../erc721component/ERC721Component.sol';
 * @notice Abstract contract representing a composable NFT.
 * @author @eldief
 */
-abstract contract ERC721Composable is IERC721Composable, Composable, ERC721 {
+abstract contract ERC721Composable is IERC721Composable, Composable, ERC721A {
     
-    constructor(string memory name, string memory symbol) ERC721(name, symbol) { }
+    constructor(string memory name, string memory symbol) ERC721A(name, symbol) { }
 
     /**
      * @notice Attach component to composable.

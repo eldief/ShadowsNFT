@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-import {Ownable} from '@openzeppelin/contracts/access/Ownable.sol';
 
 import {IComposable} from './IComposable.sol';
 
@@ -9,7 +8,7 @@ import {IComposable} from './IComposable.sol';
 * @notice Abstract contract representing a composable entity.
 * @author @eldief
 */
-abstract contract Composable is IComposable, Ownable {
+abstract contract Composable is IComposable {
     
     /**
      * @notice Array of component addresses.
@@ -28,7 +27,7 @@ abstract contract Composable is IComposable, Ownable {
      * @dev Can only be called by contract owner.
      * @param component new component address
      */
-    function expandComponents(address component) public virtual onlyOwner {
+    function expandComponents(address component) public virtual {
         require(component != address(0), 'Invalid component');
 
         _components.push(component);
